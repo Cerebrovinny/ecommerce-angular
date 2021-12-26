@@ -8,11 +8,13 @@
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a routerLink="/" class="nav-link px-2 text-secondary">Home</a></li>
         <li><a routerLink="/shopping-cart" class="nav-link px-2 text-white">Shopping cart</a></li>
-        <li><a routerLink="/login" class="nav-link px-2 text-white">Login</a></li>
+        <li *ngIf="!user"><a routerLink="/login" class="nav-link px-2 text-white">Login</a></li>
       </ul>
 
-      <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown-toggle">Username</a>
+      <li ngbDropdown *ngIf="user" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown-toggle">
+          {{ user.displayName }}
+        </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
           <a class="dropdown-item" routerLink="admin/orders">Manage Orders</a>
