@@ -19,6 +19,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AuthService } from './auth.service';
   ],
   providers: [
     AuthService,
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

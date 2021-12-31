@@ -6,8 +6,11 @@ import { AngularFireAuth} from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
+  user!: firebase.User | null;
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) { 
+    afAuth.authState.subscribe(user => this.user = user)
+  }
 
   login() {
     const provider = (new firebase.auth.GoogleAuthProvider());
